@@ -1,8 +1,8 @@
-FROM python:slim
+FROM registry.access.redhat.com/ubi9/python-39:latest
 COPY ./requirements.txt /app/requirements.txt
 WORKDIR /app
 RUN pip3 install -r requirements.txt
 COPY . /app
-RUN chmod u+x sampleAPI.py
 EXPOSE 5000
-ENTRYPOINT [ "./sampleAPI.py" ] 
+ENTRYPOINT [ "python3" ] 
+CMD ["sampleAPI.py"]
